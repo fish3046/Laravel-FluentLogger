@@ -9,8 +9,8 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
 use LogicException;
 use Monolog\Level;
-use Monolog\Logger;
 use Monolog\LogRecord;
+use PHPUnit\Framework\TestCase;
 use Ytake\LaravelFluent\FluentHandler;
 
 use function unserialize;
@@ -22,7 +22,6 @@ final class FluentHandlerTest extends TestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
         $this->filesystem = new Filesystem();
         $this->handler = new FluentHandler(
             new StubLogger($this->filesystem)
